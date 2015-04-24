@@ -1,4 +1,50 @@
 /**
+ * Merge sort implementation
+ * @param {array} arr This is the array need to be sorted.
+ * @return {array} This function returns the array in asceding sorted format.
+ */
+function mergeSort(arr) {
+    /**
+     * Merge two sorted array
+     * @param {array} l Left array to be sorted
+     * @param {array} r right array to be sorted
+     # @return {array} Return combined array that sort l and r.
+     */
+    function merge(l, r) {
+        var len = l.length + r.length;
+        var i = 0,
+            j = 0,
+            k = 0,
+            res = [];
+
+        l.push(Infinity);
+        r.push(Infinity);
+
+        for (k; k < len; k += 1) {
+            if (l[i] < r[j]) {
+                res.push(l[i]);
+                i += 1;
+            } else {
+                res.push(r[j]);
+                j += 1
+            }
+        }
+
+        return res;
+    }
+
+    if (arr.length > 1){
+        var left = mergeSort(arr.slice(0, arr.length/2)),
+            right = mergeSort(arr.slice(arr.length/2, arr.length));
+
+        return merge(left, right);
+    } else {
+        return arr;
+    }
+}
+
+
+/**
  * Insertion sort implementation
  * @param {array} arr This is the array need to be sorted.
  * @return {array} This function returns the array in asceding sorted format.
@@ -6,7 +52,7 @@
 function insertionSort(arr) {
     var i, j, key;
     if (arr.length <= 1) return arr;
-    
+
     for (i = 1; i < arr.length; i += 1) {
 	key = arr[i];
 	j = i-1;
@@ -15,10 +61,10 @@ function insertionSort(arr) {
 	    arr[j+1] = arr[j];
 	    j -= 1;
 	}
-	
+
 	arr[j+1] = key;
-    } 
-    
+    }
+
     return arr;
 }
 
@@ -34,7 +80,7 @@ function checkSortedArray(arr) {
     for (i = 1; i < arr.length; i += 1) {
 	if (arr[i] < arr[i-1]) return false;
     }
-    
+
     return true;
 }
 
@@ -50,13 +96,20 @@ function arrayGenerator(len) {
     for (i = 0; i < len; i += 1) {
 	arr.push(Math.floor(Math.random()*100+1));
     }
-    
+
     return arr;
 }
 
-var a = arrayGenerator(10);
-console.log('Original array');
+var a = arrayGenerator(9);
+// Test for insertion sort
+// console.log('Original array');
+// console.log(a);
+// console.log('Sorted array');
+// console.log(insertionSort(a));
+
+// console.log(checkSortedArray(insertionSort(a)))
+
+// Test for Merge Sort;
 console.log(a);
-console.log('Sorted array');
-console.log(insertionSort(a));
-console.log(checkSortedArray(insertionSort(a)))
+console.log(mergeSort(a));
+console.log(checkSortedArray(mergeSort(a)))
