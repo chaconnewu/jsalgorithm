@@ -1,4 +1,49 @@
 /**
+ * Quick sort implementation
+ * @param {array} arr This is the array need to be sorted.
+ * @return {array} This function returns the array in asceding sorted format.
+ */
+
+function quickSort(array) {
+    function partition (arr, start, end) {
+        var pivot = arr[start],
+            i = start + 1,
+            j = start + 1,
+            t;
+
+        while (j <= end) {
+            if (arr[j] < pivot){
+                t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
+                i += 1;
+            }
+            j += 1;
+        }
+
+        i -= 1;
+        t = arr[start];
+        arr[start] = arr[i];
+        arr[i] = t;
+        return i;
+    }
+
+    function q_sort(arr, start, end) {
+        var i;
+
+        if (start < end) {
+            i = partition(arr);
+            quickSort(arr, start, i-1);
+            quickSort(arr, i+1, end);
+        }
+    }
+    q_sort(array, 0, array.length-1);
+    console.log(array);
+    return array;
+}
+
+
+/**
  * Merge sort implementation
  * @param {array} arr This is the array need to be sorted.
  * @return {array} This function returns the array in asceding sorted format.
@@ -110,6 +155,12 @@ var a = arrayGenerator(9);
 // console.log(checkSortedArray(insertionSort(a)))
 
 // Test for Merge Sort;
+// console.log(a);
+// console.log(mergeSort(a));
+// console.log(checkSortedArray(mergeSort(a)))
+
+// Test for QuickSort
 console.log(a);
-console.log(mergeSort(a));
-console.log(checkSortedArray(mergeSort(a)))
+quickSort(a);
+console.log(a);
+// console.log(checkSortedArray(a));
