@@ -1,6 +1,11 @@
 var b = require('./building');
 
-
+/**
+ * Make a helper function for recursion. Notice that global variables should
+ * be avoided, because it will not be cleared between two consecutive tests.
+ * @param root The root node of a binary tree.
+ * @return Return an array of the inorder traversal result of the binary tree.
+ */
 var helper = function (root) {
     var res = [];
 

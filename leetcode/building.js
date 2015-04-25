@@ -1,19 +1,17 @@
 /**
  * Definition for binary tree
+ * @param {val} int Value for TreeNode
  */
 function TreeNode(val) {
     this.val = val;
     this.left = this.right = null;
 }
 
-
-function inorderTraverse(node) {
-    if (!node) return;
-    if (node.left) inorderTraverse(node.left);
-    console.log(node.val);
-    if (node.right) inorderTraverse(node.right);
-}
-
+/**
+ * Preprocessing for binary tree serialization. Parse the string, divided into * items, and make them integer. If a value equals #, make it undefined.
+ * @param s string String representation of binary tree.
+ * @return Return an array representation of the binary tree.
+ */
 function parsing(s) {
     return s.split(',').map(function(x) {
         if (x === '#') {
@@ -24,13 +22,25 @@ function parsing(s) {
     });
 }
 
+/**
+ * My implementation of binary tree serialization on LeetCode.
+ * Idea:
+ * 1. Identify the root
+ * 2. Each time, get two head nodes from the string representation
+ * 3. For either of the two, if it is value, make it a node, link it to the parent, and push it into the stack.
+ * 4. After processing the two head values, get the current node, which is the head of the stack.
+ * @param {s} string String representation of binary tree.
+ * @return Return a binary tree representation.
+ */
 function buildTree(s) {
     var arr = parsing(s),
         root = new TreeNode(arr.shift()),
-        cur = root,
+        cur,
         l,
         r,
         stack = [];
+
+    cur = root;
 
     while (arr.length > 0) {
         l = arr.shift();
