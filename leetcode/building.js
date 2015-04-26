@@ -70,6 +70,62 @@ function buildTree(s) {
 
 // var t = buildTree(s);
 // inorderTraverse(t);
+// ========= Build List ===========================================
+
+/**
+ * Definition for singly-linked list.
+ */
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+}
+
+/**
+ * Print Linked List.
+ * @param {ListNode} l The head of the LinkedList.
+ * @return Return nothing.
+ */
+function printList(l) {
+    var cur = l,
+        res = "";
+    while (cur !== null) {
+        res += cur.val + '->';
+        cur = cur.next;
+    }
+
+    console.log(res);
+}
+
+/**
+ * Build a singly-linked list from a string. e.g. 1->2->3->4.
+ * @param {string} s The string to be transferred.
+ * @return {ListNode} Return the head node of the linked list.
+ */
+function buildList(s) {
+    function preProcessing(s) {
+        return s.split('->').map(function(x) {
+            return parseInt(x, 10);
+        });
+    }
+
+    var items = preProcessing(s),
+        head = new ListNode(0),
+        cur,
+        i;
+
+    cur = head;
+    for (i = 0; i < items.length; i += 1) {
+        newNode = new ListNode(items[i]);
+        cur.next = newNode;
+        cur = newNode;
+    }
+
+    return head.next;
+}
+
+
+var l = buildList('1->2->3->4->5');
+printList(l);
 
 exports.buildTree = buildTree;
-
+exports.buildList = buildList;
