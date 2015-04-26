@@ -129,3 +129,4 @@ printList(l);
 
 exports.buildTree = buildTree;
 exports.buildList = buildList;
+exports.printList = printList;
