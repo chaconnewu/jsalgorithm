@@ -124,8 +124,8 @@ function buildList(s) {
 }
 
 
-var l = buildList('1->2->3->4->5');
-printList(l);
+// var l = buildList('1->2->3->4->5');
+// printList(l);
 
 exports.buildTree = buildTree;
 exports.buildList = buildList;
