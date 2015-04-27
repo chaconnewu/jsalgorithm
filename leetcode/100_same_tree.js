@@ -10,7 +10,7 @@ var isSameTree = function(p, q) {
     if ((p && !q) || (!p &&q)) {
         return false;
     } else {
-        if (p === null && q == null) {
+        if (p === null && q === null) {
             return true;
         }
         if (p.val !== q.val) {
