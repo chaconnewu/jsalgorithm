@@ -130,3 +130,4 @@ function buildList(s) {
 exports.buildTree = buildTree;
 exports.buildList = buildList;
 exports.printList = printList;
+exports.TreeNode = TreeNode;
