@@ -1,12 +1,5 @@
-var Person = function() {
-    var age = 25;
-
-    // this.getAge = function() {
-    //     return age;
-    // };
+for (var i = 1; i <= 5; i += 1) {
+    setTimeout(function(){
+        console.log("i: " + i);
+    }, i*1000);
 }
-
-var person = new Person();
-// console.log(person.getAge());
-
-console.log(person.age);
