@@ -26,5 +26,5 @@ var deleteDuplicates = function(head) {
 };
 
 
-var l = buildList('');
+var l = buildList('1->1->2->2->3');
 printList(deleteDuplicates(l));
