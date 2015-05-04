@@ -22,7 +22,6 @@ var deleteDuplicates = function(head) {
       } else {
         while (cur.next && cur.val === cur.next.val) {
           cur = cur.next;
-          prev.next = cur;
         }
         cur = cur.next;
         prev.next = cur;
@@ -32,5 +31,5 @@ var deleteDuplicates = function(head) {
     return first.next;
 };
 
-var l = buildList('1->2->2->3->3->3->4');
+var l = buildList('1->2->3->4');
 printList(deleteDuplicates(l));
