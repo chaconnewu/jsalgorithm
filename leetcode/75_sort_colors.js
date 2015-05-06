@@ -38,7 +38,9 @@ var sortColors = function(nums) {
                 break;
         }
     }
+
 };
 
-var a = [2,1,1,0];
+var a = [1,2,0,2,0,1];
 sortColors(a);
+console.log(a);
