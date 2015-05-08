@@ -7,31 +7,36 @@ var buildTree = require('./building').buildTree;
  */
 var levelOrder = function(root) {
   if (!root) {
-    return;
+    return [];
   }
 
   var res = [],
+      curItems = [],
       queue = [root, '#'],
       cur;
 
+  var i = 0;
 
-  while (queue !== ['#', '#']) {
+  while (queue.length > 1) {
     cur = queue.shift();
     if (cur === '#') {
-      queue.push('#');
-    } else if (!cur.left && !cur.right) {
+      res.push(curItems);
+      curItems = [];
       queue.push('#');
     } else {
+
+      curItems.push(cur.val);
       if (cur.left) {
         queue.push(cur.left);
       }
+
       if (cur.right) {
         queue.push(cur.right);
       }
     }
-    console.log(queue);
-    break;
   }
+  res.push(curItems);
+  return res
 };
 
 var t = buildTree('3,9,20,#,#,15,7');
