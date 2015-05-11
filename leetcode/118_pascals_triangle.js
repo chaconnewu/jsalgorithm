@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var generate = function(numRows) {
-  var res = [[1]],
+  var res = [],
       cur,
       row = [];
   for (var i = 1; i <= numRows; i += 1) {
@@ -12,14 +12,14 @@ var generate = function(numRows) {
       if (j === 0 || j === i - 1) {
         cur = 1;
       } else {
-        cur = res[i-1][j] + res[i-1][j-1];
+        cur = res[i-2][j] + res[i-2][j-1];
       }
       row[j] = cur;
     }
     res.push(row);
   }
 
-  return res.slice(1);
+  return res;
 };
 
 console.log(generate(10));
