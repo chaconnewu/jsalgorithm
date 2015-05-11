@@ -6,18 +6,17 @@
 var combine = function(n, k) {
   var res = [];
 
-  (function dfs(cur, items) {
+  (function recur(idx, items) {
     if (items.length === k) {
       res.push(items.slice(0));
     } else {
-      for (var i=cur; i <= n; i += 1) {
+      for (var i = idx; i <= n; i += 1) {
         items.push(i);
-        dfs(i+1, items);
-        items.pop();
+        recur(i+1, items);
+        items.pop()
       }
     }
   }(1, []));
-
   return res;
 };
 
