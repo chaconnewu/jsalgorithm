@@ -22,4 +22,4 @@ var generate = function(numRows) {
   return res;
 };
 
-console.log(generate(10));
+console.log(generate(1));
