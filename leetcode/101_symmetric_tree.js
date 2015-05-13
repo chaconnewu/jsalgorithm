@@ -12,15 +12,10 @@ var isSymmetric = function(root) {
     function check(left, right) {
         if (!left && !right) {
             return true;
-        } else if ((left && !right) || (!left && right)) {
+        } else if (!left || !right) {
             return false;
-        } else {
-            if (left.val !== right.val) {
-                return false;
-            } else {
-                return check(left.left, right.right) && check(left.right, right.left);
-            }
         }
+        return (left.val == right.val) && check(left.left, right.right) && check(left.right, right.left);
     }
 
     if (!root) {
