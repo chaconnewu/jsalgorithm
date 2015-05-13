@@ -7,20 +7,14 @@ var b = require('./building');
  */
 var isSameTree = function(p, q) {
   function recur(p, q) {
-    if ((p && !q) || (!p &&q)) {
-        return false;
-    } else {
-        if (p === null && q === null) {
-            return true;
-        }
-        if (p.val !== q.val) {
+    if (!p && !q) {
+        return true;
+    } else if (!p || !q) {
             return false;
-        } else {
-            return recur(p.left, q.left) && recur(p.right, q.right);
         }
-    }
+    return (p.val == q.val) && recur(p.left, q.left) && recur(p.right, q.right);
   }
-
+  
   return recur(p, q);
 };
 
