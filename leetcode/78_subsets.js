@@ -9,20 +9,21 @@ var subsets = function(nums) {
     return a-b;
   });
 
-  (function dfs(start, length, items) {
+  (function recur(idx, items){
     res.push(items.slice(0));
-    if (start === nums.length) {
+    if (idx === nums.length) {
       return;
+    } else {
+      for (var i = idx; i < nums.length; i += 1) {
+        items.push(nums[i]);
+        recur(i+1, items);
+        items.pop();
+      }
     }
 
-    for (var i = start; i < nums.length; i += 1) {
-      items.push(nums[i]);
-      dfs(i+1, length+1, items);
-      items.pop();
-    }
-  }(0, 0, []));
+  }(0, []));
 
   return res;
 };
 
-console.log(subsets([4,1,0]));
+console.log(subsets([1,2,3]));
