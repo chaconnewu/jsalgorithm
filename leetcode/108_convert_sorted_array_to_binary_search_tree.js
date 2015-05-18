@@ -9,10 +9,6 @@ var sortedArrayToBST = function(nums) {
     return null;
   }
 
-  if (nums.length === 1) {
-    return new TreeNode(nums[0]);
-  }
-
   var mid = Math.floor(nums.length/2);
   var newNode = new TreeNode(nums[mid]);
   newNode.left = sortedArrayToBST(nums.slice(0, mid));
