@@ -5,6 +5,8 @@ var TreeNode = require('./building').TreeNode;
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
+
+
 var flatten = function(root) {
   var stack = [];
   var cur;
