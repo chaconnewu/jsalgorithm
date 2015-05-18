@@ -1,4 +1,5 @@
 var buildTree = require("./building").buildTree;
+
 /**
  * @param {TreeNode} root
  * @param {number} sum
@@ -31,7 +32,6 @@ var pathSum = function(root, sum) {
                 dfs(node.left, curArr);
                 curArr.pop();
             }
-
             if (node.right) {
                 curArr.push(node.val);
                 dfs(node.right, curArr);
