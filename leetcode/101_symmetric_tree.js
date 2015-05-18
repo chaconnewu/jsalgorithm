@@ -17,7 +17,6 @@ var isSymmetric = function(root) {
         }
         return (left.val == right.val) && check(left.left, right.right) && check(left.right, right.left);
     }
-
     if (!root) {
         return true;
     } else {
