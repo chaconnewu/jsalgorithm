@@ -15,6 +15,8 @@ var isSameTree = function(p, q) {
 };
 
 
+
+
 var a = b.buildTree('1,2,3,4'),
     b = b.buildTree('1,2,3,4');
 
