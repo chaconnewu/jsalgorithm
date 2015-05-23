@@ -10,14 +10,12 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-    if (!root) {return true;}
-    if (Math.abs(maxDepth(root.left) - maxDepth(root.right))> 1) {
+  if (!root) {
+    return true;
+  }
+  if (Math.abs(maxDepth(root.left) - maxDepth(root.right)) > 1) {
     return false;
   }
-    return isBalanced(root.left) && isBalanced(root.right);
+  return isBalanced(root.left) && isBalanced(root.right);
 };
 
-var maxDepth = function(root) {
-    if (!root) {return 0;}
-    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
-};
